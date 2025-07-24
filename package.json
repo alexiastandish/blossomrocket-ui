@@ -19,11 +19,14 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && pnpm run build:css",
+    "build:css": "npx @tailwindcss/cli -m -i ./src/index.css -o ./dist/styles.css",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "storybook": "concurrently 'storybook dev -p 6006'",
-    "build-storybook": "concurrently 'storybook build' ",
+    "storybook": "concurrently \"pnpm run storybook:css\" \"storybook dev -p 6006\"",
+    "storybook:css": "npx @tailwindcss/cli -w -i ./src/index.css -o ./src/assets/index.css",
+    "build-storybook": "concurrently \"pnpm run build-storybook:css\" \"storybook build\"",
+    "build-storybook:css": "npx @tailwindcss/cli -m -i ./src/index.css -o ./src/assets/index.css",
     "prepublishOnly": "pnpm run build"
   },
   "peerDependencies": {
@@ -37,6 +40,7 @@
     "@storybook/addon-docs": "^9.0.18",
     "@storybook/addon-vitest": "^9.0.18",
     "@storybook/react-vite": "^9.0.18",
+    "@tailwindcss/cli": "^4.1.11",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^4.7.0",
