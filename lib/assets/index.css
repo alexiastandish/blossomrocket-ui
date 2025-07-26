@@ -302,9 +302,6 @@
   }
 }
 @layer utilities {
-  .absolute {
-    position: absolute;
-  }
   .inline-flex {
     display: inline-flex;
   }
