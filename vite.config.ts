@@ -1,136 +1,92 @@
-import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import dts from "vite-plugin-dts";
 import path from "node:path";
+import { defineConfig, type UserConfigExport } from "vite";
+import dts from "vite-plugin-dts";
+import { name } from "./package.json";
+import tailwindcss from "@tailwindcss/vite";
+import { viteStaticCopy } from "vite-plugin-static-copy";
 
-export default defineConfig({
-  plugins: [react(), dts()],
-  build: {
-    lib: {
-      entry: path.resolve(__dirname, "src/index.ts"),
-      formats: ["es"],
-    },
-    outDir: "dist",
-    rollupOptions: {
-      // Exclude peer deps
-      external: ["react", "react-dom"],
-      output: {
-        preserveModules: true, // ✅ enables code splitting
-        preserveModulesRoot: "src", // ✅ optional: keeps output clean
-        entryFileNames: "[name].js", // ✅ better output names
+const app = async (): UserConfigExport => {
+  const formattedName = name.match(/[^/]+$/)?.[0] ?? name;
+
+  return defineConfig({
+    plugins: [
+      react(),
+      tailwindcss(),
+      viteStaticCopy({
+        targets: [
+          {
+            src: path.resolve(__dirname, "lib/index.css"),
+            dest: "./",
+          },
+        ],
+      }),
+      dts({
+        insertTypesEntry: true,
+      }),
+    ],
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "./lib"),
       },
     },
-  },
-});
+    build: {
+      minify: true,
+      lib: {
+        entry: path.resolve(__dirname, "lib/index.ts"),
+        name: formattedName,
+        formats: ["es", "umd"],
+        fileName: (format) => `${formattedName}.${format}.js`,
+      },
+      rollupOptions: {
+        external: ["react", "react/jsx-runtime", "react-dom", "tailwindcss"],
+        output: {
+          globals: {
+            react: "React",
+            "react/jsx-runtime": "react/jsx-runtime",
+            "react-dom": "ReactDOM",
+            tailwindcss: "tailwindcss",
+          },
+        },
+      },
+    },
+  });
+};
+export default app;
 
 // import { defineConfig } from "vite";
 // import react from "@vitejs/plugin-react";
 // import dts from "vite-plugin-dts";
 // import path from "node:path";
-// import eslint from "vite-plugin-eslint";
-// import { fileURLToPath } from "node:url";
-// import { sync as globSync } from "glob";
-
-// const dir =
-//   typeof __dirname !== "undefined"
-//     ? __dirname
-//     : path.dirname(fileURLToPath(import.meta.url));
+// // import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 
 // export default defineConfig({
 //   plugins: [
 //     react(),
-//     eslint(),
+//     // cssInjectedByJsPlugin(),
 //     dts({
 //       include: ["lib"],
-//       exclude: ["**/*.stories.tsx", "**/*.test.tsx"],
-//       tsconfigPath: "./tsconfig.json",
+//       exclude: ["**/*.stories.tsx", "**/*.test.tsx", "lib/utils/**"],
 //     }),
 //   ],
+//   resolve: {
+//     alias: {
+//       "@": path.resolve(__dirname, "./lib"),
+//     },
+//   },
 //   build: {
 //     lib: {
-//       entry: path.resolve(dir, "lib/index.ts"),
-//       name: "ui",
-//       fileName: (format) => `index.${format}.js`,
-//       formats: ["es", "cjs"],
+//       entry: path.resolve(__dirname, "lib/index.ts"),
+//       formats: ["es"],
 //     },
-//     outputDir: "dist",
+//     outDir: "dist",
 //     rollupOptions: {
-//       external: ["react", "react-dom", "react/jsx-runtime"],
-//       input: Object.fromEntries(
-//         globSync("lib/**/*.{ts,tsx}", {
-//           ignore: ["**/*.stories.tsx", "**/*.test.tsx"],
-//         }).map((file) => [
-//           path.relative(
-//             "lib",
-//             file.slice(0, file.length - path.extname(file).length)
-//           ),
-//           fileURLToPath(new URL(file, import.meta.url)),
-//         ])
-//       ),
+//       external: ["react", "react-dom"],
 //       output: {
-//         external: ["react", "react-dom"],
-//         globals: {
-//           react: "React",
-//           "react-dom": "ReactDOM",
-//         },
+//         preserveModules: true,
+//         preserveModulesRoot: "lib",
 //         entryFileNames: "[name].js",
-//         assetFileNames: "assets/[name][extname]",
 //       },
 //     },
-//     sourcemap: true,
 //   },
 // });
-
-// // // <reference types="vitest/config" />
-// // import { defineConfig } from "vite";
-// // import { resolve, extname, relative, dirname } from "node:path";
-
-// // import react from "@vitejs/plugin-react";
-// // import dts from "vite-plugin-dts";
-// // import { peerDependencies } from "./package.json";
-// // import tailwindcss from "@tailwindcss/vite";
-
-// // import { fileURLToPath } from "node:url";
-// // import { glob } from "glob";
-// // // import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
-// // const directory =
-// //   typeof __dirname !== "undefined"
-// //     ? __dirname
-// //     : dirname(fileURLToPath(import.meta.url));
-
-// // // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
-// // export default defineConfig({
-// //   plugins: [
-// //     react(),
-// //     tailwindcss(),
-// //     dts({
-// //       include: ["lib"],
-// //     }),
-// //   ],
-// //   build: {
-// //     copyPublicDir: false,
-// //     lib: {
-// //       entry: resolve(directory, "lib/index.ts"),
-// //       formats: ["es"],
-// //     },
-// //     rollupOptions: {
-// //       external: ["react", "react/jsx-runtime", "react-dom"],
-// //       input: Object.fromEntries(
-// //         // https://rollupjs.org/configuration-options/#input
-// //         glob
-// //           .sync("lib/**/*.{ts,tsx}", {
-// //             ignore: ["lib/**/*.stories.tsx"],
-// //           })
-// //           .map((file) => [
-// //             relative("lib", file.slice(0, file.length - extname(file).length)),
-// //             fileURLToPath(new URL(file, import.meta.url)),
-// //           ])
-// //       ),
-// //       output: {
-// //         globals: { react: "React", "react-dom": "ReactDOM" },
-// //         assetFileNames: "assets/[name][extname]",
-// //         entryFileNames: "[name].js",
-// //       },
-// //     },
-// //   },
-// // });
