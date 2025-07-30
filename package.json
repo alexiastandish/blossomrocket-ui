@@ -11,13 +11,10 @@
       "import": "./dist/ui.es.js",
       "require": "./dist/ui.umd.js"
     },
-    "./dist/theme.css": "./dist/theme.css"
+    "./styles.css": "./dist/ui.css"
   },
   "files": [
     "dist"
-  ],
-  "sideEffects": [
-    "**/*.css"
   ],
   "scripts": {
     "dev": "storybook dev -p 6006",

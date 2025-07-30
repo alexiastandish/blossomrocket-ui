@@ -1,0 +1,364 @@
+{
+  "colors": {
+    "primary": {
+      "50": {
+        "$type": "color",
+        "$value": "#ffffff"
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#e7e5eb"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#dad6e0"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#ccc8d5"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#bcb6c8"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#b1aabf"
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#ff69b4"
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#7c7094"
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#645a77"
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#4b445a"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#332e3d"
+      }
+    },
+    "secondary": {
+      "50": {
+        "$type": "color",
+        "$value": "#d1e4ff"
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#b8d6ff"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#9ec8ff"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#85b9ff"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#6baaff"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#529cff"
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#1f7fff"
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#0064eb"
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#004fb8"
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#003985"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#002352"
+      }
+    },
+    "accent": {
+      "50": {
+        "$type": "color",
+        "$value": "#f7ffd6"
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#f3ffbd"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#eeffa3"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#e9ff8a"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#e4ff70"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#e0ff59"
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#d6ff24"
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#c3f000"
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#99bd00"
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#708a00"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#475700"
+      }
+    }
+  },
+  "type": {
+    "heading": {
+      "font-family": {
+        "h1": {
+          "$type": "string",
+          "$value": "'Montserrat', sans-serif"
+        },
+        "h2": {
+          "$type": "string",
+          "$value": "'Montserrat', sans-serif"
+        },
+        "h3": {
+          "$type": "string",
+          "$value": "'Montserrat', sans-serif"
+        },
+        "h4": {
+          "$type": "string",
+          "$value": "'Montserrat', sans-serif"
+        },
+        "h5": {
+          "$type": "string",
+          "$value": "'Montserrat', sans-serif"
+        },
+        "h6": {
+          "$type": "string",
+          "$value": "'Montserrat', sans-serif"
+        }
+      },
+      "font-weight": {
+        "h1": {
+          "$type": "string",
+          "$value": "600"
+        },
+        "h2": {
+          "$type": "string",
+          "$value": "600"
+        },
+        "h3": {
+          "$type": "string",
+          "$value": "600"
+        },
+        "h4": {
+          "$type": "string",
+          "$value": "600"
+        },
+        "h5": {
+          "$type": "string",
+          "$value": "600"
+        },
+        "h6": {
+          "$type": "string",
+          "$value": "700"
+        }
+      },
+      "font-size": {
+        "h1": {
+          "$type": "number",
+          "$value": 60
+        },
+        "h2": {
+          "$type": "number",
+          "$value": 48
+        },
+        "h3": {
+          "$type": "number",
+          "$value": 40
+        },
+        "h4": {
+          "$type": "number",
+          "$value": 32
+        },
+        "h5": {
+          "$type": "number",
+          "$value": 24
+        },
+        "h6": {
+          "$type": "number",
+          "$value": 20
+        }
+      },
+      "line-height": {
+        "h1": {
+          "$type": "number",
+          "$value": 60
+        },
+        "h2": {
+          "$type": "number",
+          "$value": 56
+        },
+        "h3": {
+          "$type": "number",
+          "$value": 48
+        },
+        "h4": {
+          "$type": "number",
+          "$value": 40
+        },
+        "h5": {
+          "$type": "number",
+          "$value": 28
+        },
+        "h6": {
+          "$type": "number",
+          "$value": 24
+        }
+      },
+      "paragraph-spacing": {
+        "h1": {
+          "$type": "number",
+          "$value": 48
+        },
+        "h2": {
+          "$type": "number",
+          "$value": 40
+        },
+        "h3": {
+          "$type": "number",
+          "$value": 36
+        },
+        "h4": {
+          "$type": "number",
+          "$value": 32
+        },
+        "h5": {
+          "$type": "number",
+          "$value": 28
+        },
+        "h6": {
+          "$type": "number",
+          "$value": 24
+        }
+      }
+    },
+    "body": {
+      "font-family": {
+        "sm": {
+          "$type": "string",
+          "$value": "'Roboto', sans-serif"
+        },
+        "md": {
+          "$type": "string",
+          "$value": "'Roboto', sans-serif"
+        },
+        "lg": {
+          "$type": "string",
+          "$value": "'Roboto', sans-serif"
+        }
+      },
+      "font-weight": {
+        "sm-rg": {
+          "$type": "string",
+          "$value": "400"
+        },
+        "md-rg": {
+          "$type": "string",
+          "$value": "400"
+        },
+        "lg-rg": {
+          "$type": "string",
+          "$value": "400"
+        },
+        "sm-sb": {
+          "$type": "string",
+          "$value": "600"
+        },
+        "md-sb": {
+          "$type": "string",
+          "$value": "600"
+        },
+        "lg-sb": {
+          "$type": "string",
+          "$value": "600"
+        }
+      },
+      "line-height": {
+        "sm": {
+          "$type": "number",
+          "$value": 20
+        },
+        "md": {
+          "$type": "number",
+          "$value": 24
+        },
+        "lg": {
+          "$type": "number",
+          "$value": 32
+        }
+      },
+      "font-size": {
+        "sm": {
+          "$type": "number",
+          "$value": 12
+        },
+        "md": {
+          "$type": "number",
+          "$value": 16
+        },
+        "lg": {
+          "$type": "number",
+          "$value": 20
+        }
+      },
+      "paragraph-spacing": {
+        "sm": {
+          "$type": "number",
+          "$value": 16
+        },
+        "md": {
+          "$type": "number",
+          "$value": 16
+        },
+        "lg": {
+          "$type": "number",
+          "$value": 20
+        }
+      }
+    }
+  },
+  "imports": [
+    "@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');",
+    "@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');"
+  ]
+}

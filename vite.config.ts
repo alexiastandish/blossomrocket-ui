@@ -1,13 +1,13 @@
-import react from "@vitejs/plugin-react";
-import path from "node:path";
-import { defineConfig, type UserConfigExport } from "vite";
-import dts from "vite-plugin-dts";
-import { name } from "./package.json";
-import tailwindcss from "@tailwindcss/vite";
-import { viteStaticCopy } from "vite-plugin-static-copy";
+import react from '@vitejs/plugin-react'
+import path from 'node:path'
+import { defineConfig, type UserConfigExport } from 'vite'
+import dts from 'vite-plugin-dts'
+import { name } from './package.json'
+import tailwindcss from '@tailwindcss/vite'
+import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 const app = async (): UserConfigExport => {
-  const formattedName = name.match(/[^/]+$/)?.[0] ?? name;
+  const formattedName = name.match(/[^/]+$/)?.[0] ?? name
 
   return defineConfig({
     plugins: [
@@ -16,49 +16,48 @@ const app = async (): UserConfigExport => {
       viteStaticCopy({
         targets: [
           {
-            src: path.resolve(__dirname, "lib/index.css"),
-            dest: "./",
-          },
-        ],
+            src: path.resolve(__dirname, 'lib/index.css'),
+            dest: './'
+          }
+        ]
       }),
       dts({
-        insertTypesEntry: true,
-      }),
+        insertTypesEntry: true
+      })
     ],
     resolve: {
       alias: {
-        "@": path.resolve(__dirname, "./lib"),
-      },
+        '@': path.resolve(__dirname, './lib')
+      }
     },
     build: {
       minify: true,
       lib: {
-        entry: path.resolve(__dirname, "lib/index.ts"),
+        entry: path.resolve(__dirname, 'lib/index.ts'),
         name: formattedName,
-        formats: ["es", "umd"],
-        fileName: (format) => `${formattedName}.${format}.js`,
+        formats: ['es', 'umd'],
+        fileName: (format) => `${formattedName}.${format}.js`
       },
       rollupOptions: {
-        external: ["react", "react/jsx-runtime", "react-dom", "tailwindcss"],
+        external: ['react', 'react/jsx-runtime', 'react-dom', 'tailwindcss'],
         output: {
           globals: {
-            react: "React",
-            "react/jsx-runtime": "react/jsx-runtime",
-            "react-dom": "ReactDOM",
-            tailwindcss: "tailwindcss",
-          },
-        },
-      },
-    },
-  });
-};
-export default app;
+            react: 'React',
+            'react/jsx-runtime': 'react/jsx-runtime',
+            'react-dom': 'ReactDOM',
+            tailwindcss: 'tailwindcss'
+          }
+        }
+      }
+    }
+  })
+}
+export default app
 
 // import { defineConfig } from "vite";
 // import react from "@vitejs/plugin-react";
 // import dts from "vite-plugin-dts";
 // import path from "node:path";
-// // import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 
 // export default defineConfig({
 //   plugins: [

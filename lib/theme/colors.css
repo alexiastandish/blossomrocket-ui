@@ -1,38 +1,42 @@
 @theme {
   /* Primary Colors */
-  --color-primary-100: red;
-  --color-primary-200: #ffb67d;
-  --color-primary-300: #f98328;
-  --color-primary-400: #e67116;
-  --color-primary-500: #bc5200;
+  --color-primary-50: #ffffff;
+  --color-primary-500: #b1aabf;
+  --color-primary-100: #e7e5eb;
+  --color-primary-950: #332e3d;
+  --color-primary-900: #4b445a;
+  --color-primary-800: #645a77;
+  --color-primary-700: #7c7094;
+  --color-primary-600: #ff69b4;
+  --color-primary-400: #bcb6c8;
+  --color-primary-300: #ccc8d5;
+  --color-primary-200: #dad6e0;
 
   /* Secondary Colors */
-  --color-secondary-100: #9fba9f;
-  --color-secondary-200: #657965;
-  --color-secondary-300: #364136;
-  --color-secondary-400: #243824;
-  --color-secondary-500: #162516;
+  --color-secondary-950: #002352;
+  --color-secondary-900: #003985;
+  --color-secondary-800: #004fb8;
+  --color-secondary-700: #0064eb;
+  --color-secondary-600: #1f7fff;
+  --color-secondary-500: #529cff;
+  --color-secondary-400: #6baaff;
+  --color-secondary-300: #85b9ff;
+  --color-secondary-200: #9ec8ff;
+  --color-secondary-100: #b8d6ff;
+  --color-secondary-50: #d1e4ff;
 
-  /* Accent 1 */
-  --color-accent1-100: #fbf8f4;
-  --color-accent1-200: #f5e9dc;
-  --color-accent1-300: #e3ceb7;
-  --color-accent1-400: #d3b391;
-  --color-accent1-500: #b18351;
-
-  /* Accent 2 */
-  --color-accent2-100: #e5fffe;
-  --color-accent2-200: #adede9;
-  --color-accent2-300: #50b4af;
-  --color-accent2-400: #7ec8c4;
-  --color-accent2-500: #167671;
-
-  /* Accent 3 */
-  --color-accent3-100: #ffe9cd;
-  --color-accent3-200: #eeca9d;
-  --color-accent3-300: #d4af7f;
-  --color-accent3-400: #a87b41;
-  --color-accent3-500: #9c7037;
+  /* Accent colors */
+  --color-accent-950: #475700;
+  --color-accent-900: #708a00;
+  --color-accent-800: #99bd00;
+  --color-accent-700: #c3f000;
+  --color-accent-600: #d6ff24;
+  --color-accent-500: #e0ff59;
+  --color-accent-400: #e4ff70;
+  --color-accent-300: #e9ff8a;
+  --color-accent-200: #eeffa3;
+  --color-accent-100: #f3ffbd;
+  --color-accent-50: #f7ffd6;
 
   /* Neutral */
   --color-neutral-100: #fafafa;

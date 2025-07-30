@@ -1,0 +1,11 @@
+{
+  "features": [
+    "🎨 Multiple visual variants (primary, secondary, outline)",
+    "📏 Flexible sizing options (small, medium, large)",
+    "🔄 Loading state support",
+    "📱 Full-width option for responsive layouts",
+    "🖼️ Icon support",
+    "♿ Full accessibility support ",
+    "🎯 Customizable styling through className"
+  ]
+}
