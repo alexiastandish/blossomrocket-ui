@@ -16,9 +16,7 @@
   --body-font-family-sm: 'Roboto', sans-serif;
   --body-font-family-md: 'Roboto', sans-serif;
   --body-font-family-lg: 'Roboto', sans-serif;
-  --body-font-weight-sm: regular;
-  --body-font-weight-md: regular;
-  --body-font-weight-lg: regular;
+
   /* Injected new tokens */
   --heading-font-family-h1: 'Montserrat', sans-serif;
   --heading-font-family-h2: 'Montserrat', sans-serif;

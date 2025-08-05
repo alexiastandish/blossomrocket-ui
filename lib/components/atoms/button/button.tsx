@@ -25,13 +25,15 @@ const buttonVariants = cva(
     },
     defaultVariants: {
       variant: 'primary',
-      size: 'md'
+      size: 'md',
+      fullWidth: false
     }
   }
 )
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ children, variant, size, fullWidth, isLoading, icon, className, ...props }, ref) => {
+    console.log('fullWidth', cn(buttonVariants({ variant, size, fullWidth }), className))
     return (
       <button
         className={cn(buttonVariants({ variant, size, fullWidth }), className)}

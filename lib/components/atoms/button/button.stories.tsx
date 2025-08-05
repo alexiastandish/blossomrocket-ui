@@ -54,6 +54,13 @@ export const Secondary: Story = {
   }
 }
 
+export const Outline: Story = {
+  args: {
+    variant: 'outline',
+    children: 'Button'
+  }
+}
+
 export const Large: Story = {
   args: {
     size: 'lg',
