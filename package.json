@@ -27,7 +27,7 @@
     "test:cov": "vitest run --coverage",
     "typecheck": "tsc --noEmit",
     "prepare": "",
-    "prepack": "json -f package.json -I -e \"delete this.devDependencies; delete this.dependencies\""
+    "prepack": "json -f package.json -I -e \"this.devDependencies = {}; this.dependencies = {}\""
   },
   "eslintConfig": {
     "extends": [
