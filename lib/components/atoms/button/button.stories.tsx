@@ -12,7 +12,6 @@ const meta = {
   tags: ['autodocs'],
 
   parameters: {
-    layout: 'centered',
     docs: {
       description: {
         component: 'A versatile and accessible button component that supports multiple variants, sizes, and states'
@@ -24,6 +23,7 @@ const meta = {
       )
     }
   },
+  args: { onClick: fn(), variant: 'primary', children: 'Button', fullWidth: false },
 
   argTypes: {
     variant: {
@@ -31,46 +31,53 @@ const meta = {
         options: ['primary', 'secondary', 'outline', 'text', 'danger'],
         control: { type: 'select' }
       }
+    },
+    children: {
+      control: { type: 'text' },
+      description: 'Button text or content'
+    },
+    fullWidth: {
+      type: 'boolean'
     }
-  },
-  args: { onClick: fn() }
+  }
 } satisfies Meta<typeof Button>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary: Story = {
-  args: {
-    variant: 'primary',
-    children: 'Button'
-  }
-}
+export const Primary: Story = {}
 
 export const Secondary: Story = {
   args: {
-    variant: 'secondary',
-    children: 'Button'
+    variant: 'secondary'
   }
 }
 
 export const Outline: Story = {
   args: {
-    variant: 'outline',
-    children: 'Button'
+    variant: 'outline'
   }
 }
 
 export const Large: Story = {
   args: {
-    size: 'lg',
-    children: 'Button'
+    size: 'lg'
   }
 }
 
 export const Small: Story = {
   args: {
-    size: 'sm',
-    children: 'Button'
+    size: 'sm'
+  }
+}
+
+export const Disabled: Story = {
+  args: {
+    disabled: true
+  }
+}
+export const Loading: Story = {
+  args: {
+    isLoading: true
   }
 }

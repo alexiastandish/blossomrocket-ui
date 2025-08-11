@@ -1,3 +1,14 @@
+/* Tailwind v4 core (ok if you're already importing this elsewhere) */
+@import 'tailwindcss';
+
+@import '../lib/theme/tokens.css';
+@import '../lib/theme/typography.css';
+@import '../lib/theme/foundation.css';
+@import '../lib/theme/colors.css';
+
+/* 2) COMPONENT LAYERS AFTER TOKENS */
+@import '../lib/theme/components.css';
+
 #storybook-root {
   width: 100%;
   max-width: 100%;

@@ -2,9 +2,10 @@ import * as React from 'react'
 import { cva } from 'class-variance-authority'
 import type { ButtonProps } from './button.types'
 import { cn } from '@/utils/helpers'
+import { Spinner } from '../spinner'
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none',
+  'inline-flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:pointer-events-none',
   {
     variants: {
       variant: {
@@ -20,7 +21,8 @@ const buttonVariants = cva(
         lg: 'px-5 py-3 text-lg'
       },
       fullWidth: {
-        true: 'w-full'
+        true: 'w-full',
+        false: 'auto'
       }
     },
     defaultVariants: {
@@ -33,7 +35,7 @@ const buttonVariants = cva(
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ children, variant, size, fullWidth, isLoading, icon, className, ...props }, ref) => {
-    console.log('fullWidth', cn(buttonVariants({ variant, size, fullWidth }), className))
+    console.log('isLoading', isLoading)
     return (
       <button
         className={cn(buttonVariants({ variant, size, fullWidth }), className)}
@@ -41,7 +43,8 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={isLoading || props.disabled}
         {...props}
       >
-        {isLoading ? <span className='loader' /> : icon}
+        {isLoading && <Spinner size='sm' className='mr-2' />}
+        {icon && !isLoading && icon}
         {children}
       </button>
     )

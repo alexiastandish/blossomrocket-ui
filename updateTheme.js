@@ -1,6 +1,7 @@
 import fs from 'fs/promises'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import { converter, parse, formatCss } from 'culori'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -11,12 +12,21 @@ const targetColorsPath = path.resolve(__dirname, 'lib/theme/colors.css')
 const targetTypographyPath = path.resolve(__dirname, 'lib/theme/typography.css')
 const targetGlobalPath = path.resolve(__dirname, 'lib/index.css')
 
+const hexToOklch = converter('oklch')
+
 const getColorVariables = (colors) => {
   const colorConfig = {}
   for (const colorKey in colors) {
     const colorShades = colors[colorKey]
     for (const [shade, { $value }] of Object.entries(colorShades)) {
-      colorConfig[`--color-${colorKey}-${shade}`] = $value
+      const color = parse($value)
+      const oklchColorOutput = hexToOklch(color)
+      const oklchColor = formatCss(oklchColorOutput)
+      console.log('oklchColor', oklchColor)
+      if (shade === '300') {
+        colorConfig[`--color-${colorKey}`] = oklchColor
+      }
+      colorConfig[`--color-${colorKey}-${shade}`] = oklchColor
     }
   }
   return colorConfig
