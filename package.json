@@ -5,14 +5,14 @@
   "module": "./dist/ui.es.js",
   "types": "./dist/index.d.ts",
   "style": "./dist/ui.css",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/blossomrocket-ui.es.js",
       "require": "./dist/blossomrocket-ui.umd.js"
     },
-    "./styles.css": "./dist/blososmrocket-ui.css"
+    "./index.css": "./dist/index.css"
   },
   "files": [
     "dist/**",
