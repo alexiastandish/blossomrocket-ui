@@ -4,23 +4,12 @@ import { defineConfig, type UserConfigExport } from 'vite'
 import dts from 'vite-plugin-dts'
 import { name } from './package.json'
 import tailwindcss from '@tailwindcss/vite'
-import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 const app = async (): UserConfigExport => {
-  const formattedName = name.match(/[^/]+$/)?.[0] ?? name
-
   return defineConfig({
     plugins: [
       react(),
       tailwindcss(),
-      viteStaticCopy({
-        targets: [
-          {
-            src: path.resolve(__dirname, 'lib/index.css'),
-            dest: './'
-          }
-        ]
-      }),
       dts({
         insertTypesEntry: true,
         outDir: 'dist'
@@ -32,16 +21,25 @@ const app = async (): UserConfigExport => {
       }
     },
     build: {
+      outDir: 'dist',
       minify: true,
+      cssCodeSplit: false,
       lib: {
         entry: path.resolve(__dirname, 'lib/index.ts'),
-        name: formattedName,
+        name: name.match(/[^/]+$/)?.[0] ?? name,
         formats: ['es', 'umd'],
-        fileName: (format) => `${formattedName}.${format}.js`
+        fileName: (format) => `${name.match(/[^/]+$/)?.[0] ?? name}.${format}.js`
       },
       rollupOptions: {
         external: ['react', 'react/jsx-runtime', 'react-dom', 'tailwindcss'],
         output: {
+          assetFileNames: (assetInfo) => {
+            const originals = assetInfo.originalFileNames ?? []
+            const names = assetInfo.names ?? []
+            const all = [...originals, ...names]
+            const isCss = all.some((n) => n?.toString().endsWith('.css'))
+            return isCss ? 'style.css' : 'assets/[name][extname]'
+          },
           globals: {
             react: 'React',
             'react/jsx-runtime': 'react/jsx-runtime',
@@ -54,39 +52,3 @@ const app = async (): UserConfigExport => {
   })
 }
 export default app
-
-// import { defineConfig } from "vite";
-// import react from "@vitejs/plugin-react";
-// import dts from "vite-plugin-dts";
-// import path from "node:path";
-
-// export default defineConfig({
-//   plugins: [
-//     react(),
-//     // cssInjectedByJsPlugin(),
-//     dts({
-//       include: ["lib"],
-//       exclude: ["**/*.stories.tsx", "**/*.test.tsx", "lib/utils/**"],
-//     }),
-//   ],
-//   resolve: {
-//     alias: {
-//       "@": path.resolve(__dirname, "./lib"),
-//     },
-//   },
-//   build: {
-//     lib: {
-//       entry: path.resolve(__dirname, "lib/index.ts"),
-//       formats: ["es"],
-//     },
-//     outDir: "dist",
-//     rollupOptions: {
-//       external: ["react", "react-dom"],
-//       output: {
-//         preserveModules: true,
-//         preserveModulesRoot: "lib",
-//         entryFileNames: "[name].js",
-//       },
-//     },
-//   },
-// });

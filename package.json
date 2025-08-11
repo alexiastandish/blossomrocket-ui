@@ -4,16 +4,19 @@
   "main": "./dist/ui.umd.js",
   "module": "./dist/ui.es.js",
   "types": "./dist/index.d.ts",
-  "style": "./dist/ui.css",
-  "version": "1.0.21",
+  "style": "dist/index.css",
+  "version": "1.0.22",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/blossomrocket-ui.es.js",
       "require": "./dist/blossomrocket-ui.umd.js"
     },
-    "./index.css": "./dist/blossomrocket-ui.css"
+    "./style.css": "./dist/style.css"
   },
+  "sideEffects": [
+    "*.css"
+  ],
   "files": [
     "dist/**",
     "README.md",
