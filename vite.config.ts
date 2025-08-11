@@ -22,7 +22,8 @@ const app = async (): UserConfigExport => {
         ]
       }),
       dts({
-        insertTypesEntry: true
+        insertTypesEntry: true,
+        outDir: 'dist'
       })
     ],
     resolve: {
