@@ -26,8 +26,9 @@
     "test": "vitest",
     "test:cov": "vitest run --coverage",
     "typecheck": "tsc --noEmit",
-    "prepare": "",
-    "prepack": "json -f package.json -I -e \"this.devDependencies = {}; this.dependencies = {}\""
+    "prepublishOnly": "pnpm build",
+    "prepack": "pnpm dlx json -f package.json -I -e \"this.devDependencies={}; this.dependencies={}\"",
+    "postpack": "git checkout -- package.json"
   },
   "eslintConfig": {
     "extends": [
