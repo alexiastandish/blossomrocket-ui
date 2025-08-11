@@ -156,7 +156,3 @@
 @utility btn-border-radius {
   border-radius: 999px;
 }
-
-@utility btn-bg-primary {
-  background: var(--color-primary);
-}

@@ -1,12 +1,12 @@
 @theme {
-  --btn-primary-bg: var(--color-primary-600);
+  --btn-primary-bg: var(--color-primary-300);
   --btn-primary-text-color: var(--color-primary-50);
   --btn-secondary-bg: radial-gradient(circle at center, #edff9e 0%, #e0ff59 100%);
   --btn-secondary-text-color: var(--color-neutral-950);
 }
 
 @utility bg-primary {
-  background: var(--color-primary);
+  background: var(--color-primary-300);
 }
 
 @layer components {
@@ -22,10 +22,8 @@
   }
 
   .btn-primary {
-    @apply bg-primary;
-    /* @apply bg- */
-    /* background: var(--btn-primary-bg); */
-    /* color: var(--btn-primary-text-color); */
+    background: var(--btn-primary-bg);
+    color: var(--btn-primary-text-color);
   }
 
   .btn-secondary {
