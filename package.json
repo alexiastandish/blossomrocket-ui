@@ -1,5 +1,5 @@
 {
-  "name": "@blossomrocket/ui",
+  "name": "blossomrocket-ui",
   "type": "module",
   "main": "./dist/ui.umd.js",
   "module": "./dist/ui.es.js",
