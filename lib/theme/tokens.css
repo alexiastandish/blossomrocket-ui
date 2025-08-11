@@ -103,6 +103,8 @@
   --body-paragraph-spacing-lg: 1.25rem;
 
   /* Buttons */
+  --btn-text-transform: uppercase;
+  --btn-text-tracking: 4px;
   --btn-default-size-xs: 0.875rem; /* 16px / 16 */
   --btn-default-size-sm: 1.125rem; /* 18px / 16 */
   --btn-default-size-md: 1.25rem; /* 20px / 16 */
@@ -126,4 +128,35 @@
   --btn-small-size-xl: 1.125rem; /* 18px / 16 */
   --btn-small-leading: 1.5;
   --btn-small-weight: 400;
+}
+
+@utility font-heading {
+  font-family: var(--font-heading);
+}
+@utility font-body {
+  font-family: var(--font-body);
+}
+
+@utility btn-text-transform {
+  text-transform: var(--btn-text-transform);
+}
+
+@utility btn-text-tracking {
+  letter-spacing: var(--btn-text-tracking);
+}
+
+@utility btn-leading {
+  line-height: var(--btn-default-leading);
+}
+
+@utility btn-weight {
+  font-weight: var(--btn-default-weight);
+}
+
+@utility btn-border-radius {
+  border-radius: 999px;
+}
+
+@utility btn-bg-primary {
+  background: var(--color-primary);
 }

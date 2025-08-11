@@ -35,18 +35,34 @@ const buttonVariants = cva(
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ children, variant, size, fullWidth, isLoading, icon, className, ...props }, ref) => {
+    const variantClass = {
+      primary: 'btn-primary',
+      secondary: 'btn-secondary',
+      outline: 'btn-outline',
+      ghost: 'btn-ghost',
+      danger: 'btn-danger',
+      text: 'btn-text'
+    }[variant ?? 'primary']
+
+    const sizeClass = {
+      sm: 'br-btn--sm',
+      md: 'br-btn--md',
+      lg: 'br-btn--lg'
+    }[size ?? 'md']
     console.log('isLoading', isLoading)
     return (
-      <button
-        className={cn(buttonVariants({ variant, size, fullWidth }), className)}
-        ref={ref}
-        disabled={isLoading || props.disabled}
-        {...props}
-      >
-        {isLoading && <Spinner size='sm' className='mr-2' />}
-        {icon && !isLoading && icon}
-        {children}
-      </button>
+      <button className={cn('btn-default', variantClass, sizeClass, className)}>{children}</button>
+
+      // <button
+      //   className={cn(buttonVariants({ variant, size, fullWidth }), className)}
+      //   ref={ref}
+      //   disabled={isLoading || props.disabled}
+      //   {...props}
+      // >
+      //   {isLoading && <Spinner size='sm' className='mr-2' />}
+      //   {icon && !isLoading && icon}
+      //   {children}
+      // </button>
     )
   }
 )

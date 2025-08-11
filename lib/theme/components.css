@@ -5,22 +5,27 @@
   --btn-secondary-text-color: var(--color-neutral-950);
 }
 
+@utility bg-primary {
+  background: var(--color-primary);
+}
+
 @layer components {
-  .btn-default,
-  .btn-primary,
-  .btn-secondary {
-    font-family: var(--font-heading);
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    font-size: var(--btn-default-size-xs);
-    line-height: var(--btn-default-leading);
-    font-weight: var(--btn-default-weight);
-    border-radius: var(--rounded-lg);
+  .btn-default {
+    @apply font-heading btn-text-transform btn-text-tracking btn-leading btn-weight btn-border-radius;
+    /* font-family: var(--font-heading); */
+    /* text-transform: uppercase; */
+    /* letter-spacing: 4px; */
+    /* font-size: var(--btn-default-size-xs); */
+    /* line-height: var(--btn-default-leading); */
+    /* font-weight: var(--btn-default-weight); */
+    /* border-radius: var(--rounded-lg); */
   }
 
   .btn-primary {
-    background: var(--btn-primary-bg);
-    color: var(--btn-primary-text-color);
+    @apply bg-primary;
+    /* @apply bg- */
+    /* background: var(--btn-primary-bg); */
+    /* color: var(--btn-primary-text-color); */
   }
 
   .btn-secondary {
