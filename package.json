@@ -5,6 +5,7 @@
   "module": "./dist/ui.es.js",
   "types": "./dist/index.d.ts",
   "style": "./dist/ui.css",
+  "version": "1.0.0",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -25,8 +26,7 @@
     "prettier": "prettier --write \"src/**/*.{ts,tsx,js,mdx}\"",
     "test": "vitest",
     "test:cov": "vitest run --coverage",
-    "typecheck": "tsc --noEmit",
-    "prepare": ""
+    "typecheck": "tsc --noEmit"
   },
   "eslintConfig": {
     "extends": [
