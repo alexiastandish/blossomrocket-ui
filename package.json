@@ -5,7 +5,7 @@
   "module": "./dist/ui.es.js",
   "types": "./dist/index.d.ts",
   "style": "dist/index.css",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
