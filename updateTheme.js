@@ -22,7 +22,6 @@ const getColorVariables = (colors) => {
       const color = parse($value)
       const oklchColorOutput = hexToOklch(color)
       const oklchColor = formatCss(oklchColorOutput)
-      console.log('oklchColor', oklchColor)
       if (shade === '300') {
         colorConfig[`--color-${colorKey}`] = oklchColor
       }

@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react-vite'
-import '../lib/index.css'
 import './preview.css'
+import '../lib/index.css'
 
 const preview: Preview = {
   decorators: [

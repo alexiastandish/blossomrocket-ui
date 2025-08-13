@@ -47,17 +47,17 @@ type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {}
 
-// export const Secondary: Story = {
-//   args: {
-//     variant: 'secondary'
-//   }
-// }
+export const Secondary: Story = {
+  args: {
+    variant: 'secondary'
+  }
+}
 
-// export const Outline: Story = {
-//   args: {
-//     variant: 'outline'
-//   }
-// }
+export const Outline: Story = {
+  args: {
+    variant: 'outline'
+  }
+}
 
 // export const Large: Story = {
 //   args: {

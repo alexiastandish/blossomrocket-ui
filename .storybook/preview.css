@@ -1,4 +1,3 @@
-/* Tailwind v4 core (ok if you're already importing this elsewhere) */
 @import 'tailwindcss';
 
 @import '../lib/theme/tokens.css';

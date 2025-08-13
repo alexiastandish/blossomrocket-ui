@@ -12,7 +12,8 @@ const app = async (): UserConfigExport => {
       tailwindcss(),
       dts({
         insertTypesEntry: true,
-        outDir: 'dist'
+        outDir: 'dist',
+        exclude: ['**/*.stories.tsx']
       })
     ],
     resolve: {
