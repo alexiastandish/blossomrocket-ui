@@ -1,23 +1,93 @@
 import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks'
+import themeConfig from '../../../../theme-config.json'
 
 <Meta title='Foundation/Colors' />
 
 <ColorPalette>
+
+<div className='sb-color-item'>
   <ColorItem
-    title='theme.color.greyscale'
-    subtitle='Some of the greys'
-    colors={{ White: '#FFFFFF', Alabaster: '#F8F8F8', Concrete: '#F3F3F3' }}
-  />
-  <ColorItem title='theme.color.primary' subtitle='Coral' colors={{ WildWatermelon: '#FF4785' }} />
-  <ColorItem title='theme.color.secondary' subtitle='Ocean' colors={{ DodgerBlue: '#1EA7FD' }} />
-  <ColorItem
-    title='theme.color.positive'
-    subtitle='Green'
+    title='--color-primary'
     colors={{
-      Apple: 'rgba(102,191,60,1)',
-      Apple80: 'rgba(102,191,60,.8)',
-      Apple60: 'rgba(102,191,60,.6)',
-      Apple30: 'rgba(102,191,60,.3)'
+      '50': themeConfig.colors.primary['50'].value,
+      '100': themeConfig.colors.primary['100'].value,
+      '200': themeConfig.colors.primary['200'].value,
+      '300': themeConfig.colors.primary['300'].value,
+      '400': themeConfig.colors.primary['400'].value,
+      '500': themeConfig.colors.primary['500'].value,
+      '600': themeConfig.colors.primary['600'].value,
+      '700': themeConfig.colors.primary['700'].value,
+      '800': themeConfig.colors.primary['800'].value,
+      '900': themeConfig.colors.primary['900'].value,
+      '950': themeConfig.colors.primary['950'].value
+    }}
+  />
+</div>
+
+<div className='sb-color-item'>
+  <ColorItem
+    title='--color-secondary'
+    colors={{
+      '50': themeConfig.colors.secondary['50'].value,
+      '100': themeConfig.colors.secondary['100'].value,
+      '200': themeConfig.colors.secondary['200'].value,
+      '300': themeConfig.colors.secondary['300'].value,
+      '400': themeConfig.colors.secondary['400'].value,
+      '500': themeConfig.colors.secondary['500'].value,
+      '600': themeConfig.colors.secondary['600'].value,
+      '700': themeConfig.colors.secondary['700'].value,
+      '800': themeConfig.colors.secondary['800'].value,
+      '900': themeConfig.colors.secondary['900'].value,
+      '950': themeConfig.colors.secondary['950'].value
+    }}
+  />
+</div>
+
+<div className='sb-color-item'>
+  <ColorItem
+    title='--color-accent'
+    colors={{
+      '50': themeConfig.colors.accent['50'].value,
+      '100': themeConfig.colors.accent['100'].value,
+      '200': themeConfig.colors.accent['200'].value,
+      '300': themeConfig.colors.accent['300'].value,
+      '400': themeConfig.colors.accent['400'].value,
+      '500': themeConfig.colors.accent['500'].value,
+      '600': themeConfig.colors.accent['600'].value,
+      '700': themeConfig.colors.accent['700'].value,
+      '800': themeConfig.colors.accent['800'].value,
+      '900': themeConfig.colors.accent['900'].value,
+      '950': themeConfig.colors.accent['950'].value
+    }}
+  />
+</div>
+
+<div className='sb-color-item'>
+  <ColorItem
+    title='--color-neutral'
+    colors={{
+      '50': themeConfig.colors.neutral['50'].value,
+      '100': themeConfig.colors.neutral['100'].value,
+      '200': themeConfig.colors.neutral['200'].value,
+      '300': themeConfig.colors.neutral['300'].value,
+      '400': themeConfig.colors.neutral['400'].value,
+      '500': themeConfig.colors.neutral['500'].value,
+      '600': themeConfig.colors.neutral['600'].value,
+      '700': themeConfig.colors.neutral['700'].value,
+      '800': themeConfig.colors.neutral['800'].value,
+      '900': themeConfig.colors.neutral['900'].value,
+      '950': themeConfig.colors.neutral['950'].value
+    }}
+  />
+</div>
+
+  <ColorItem
+    title='Status Colors'
+    colors={{
+      success: themeConfig.colors.success.value,
+      danger: themeConfig.colors.danger.value,
+      warning: themeConfig.colors.warning.value,
+      info: themeConfig.colors.info.value,
     }}
   />
   <ColorItem

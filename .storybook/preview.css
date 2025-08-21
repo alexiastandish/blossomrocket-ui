@@ -15,3 +15,25 @@
   justify-content: center;
   display: flex;
 }
+
+.docblock-colorpalette > div > div:first-child {
+  flex: 0 0 20%;
+}
+
+.sb-color-item > div > div:first-child {
+  flex: 0 0 20%;
+}
+.sb-color-item > div > div:last-child {
+  position: relative;
+}
+
+.sb-color-item > div > div:last-child > div > div {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.sb-color-item > div > div > div:last-child > div > div::before {
+  max-width: 4.5rem;
+}

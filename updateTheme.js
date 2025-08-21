@@ -14,18 +14,30 @@ const targetGlobalPath = path.resolve(__dirname, 'lib/index.css')
 
 const hexToOklch = converter('oklch')
 
+const convertColorValue = (colorValue) => {
+  const color = parse(colorValue)
+  const oklchColorOutput = hexToOklch(color)
+  const oklchColor = formatCss(oklchColorOutput)
+  return oklchColor
+}
+
 const getColorVariables = (colors) => {
   const colorConfig = {}
   for (const colorKey in colors) {
     const colorShades = colors[colorKey]
-    for (const [shade, { $value }] of Object.entries(colorShades)) {
-      const color = parse($value)
-      const oklchColorOutput = hexToOklch(color)
-      const oklchColor = formatCss(oklchColorOutput)
-      if (shade === '300') {
-        colorConfig[`--color-${colorKey}`] = oklchColor
+    const noColorShades = typeof Object.values(colorShades)[0] === 'string'
+    if (noColorShades) {
+      const oklchColor = convertColorValue(colorShades.value)
+      colorConfig[`--color-${colorKey}`] = oklchColor
+    } else {
+      for (const [shade, { value }] of Object.entries(colorShades)) {
+        const oklchColor = convertColorValue(value)
+
+        if (shade === '500') {
+          colorConfig[`--color-${colorKey}`] = oklchColor
+        }
+        colorConfig[`--color-${colorKey}-${shade}`] = oklchColor
       }
-      colorConfig[`--color-${colorKey}-${shade}`] = oklchColor
     }
   }
   return colorConfig

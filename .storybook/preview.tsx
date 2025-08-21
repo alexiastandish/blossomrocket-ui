@@ -3,18 +3,18 @@ import './preview.css'
 import '../lib/index.css'
 
 const preview: Preview = {
-  decorators: [
-    (Story, { viewMode }) => {
-      const isDocsPAge = viewMode === 'docs'
-      return (
-        <div className={`w-full flex items-center justify-center ${`${isDocsPAge ? 'h-[100%] p-3' : 'h-screen'}`}`}>
-          <Story />
-        </div>
-      )
-    }
-  ],
+  // decorators: [
+  //   (Story, { viewMode }) => {
+  //     const isDocsPAge = viewMode === 'docs'
+  //     return (
+  //       <div className={`w-full flex items-center justify-center ${`${isDocsPAge ? 'h-[100%] p-3' : 'h-screen'}`}`}>
+  //         <Story />
+  //       </div>
+  //     )
+  //   }
+  // ],
   parameters: {
-    layout: 'fullscreen',
+    // layout: 'fullscreen',
 
     controls: {
       matchers: {

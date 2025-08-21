@@ -1,12 +1,10 @@
 @theme {
-  /* Injected new tokens */
   --body-font-weight-sm-rg: 400;
   --body-font-weight-md-rg: 400;
   --body-font-weight-lg-rg: 400;
   --body-font-weight-sm-sb: 600;
   --body-font-weight-md-sb: 600;
   --body-font-weight-lg-sb: 600;
-  /* Injected new tokens */
   --heading-font-weight-h1: 600;
   --heading-font-weight-h2: 600;
   --heading-font-weight-h3: 600;
@@ -16,15 +14,12 @@
   --body-font-family-sm: 'Roboto', sans-serif;
   --body-font-family-md: 'Roboto', sans-serif;
   --body-font-family-lg: 'Roboto', sans-serif;
-
-  /* Injected new tokens */
   --heading-font-family-h1: 'Montserrat', sans-serif;
   --heading-font-family-h2: 'Montserrat', sans-serif;
   --heading-font-family-h3: 'Montserrat', sans-serif;
   --heading-font-family-h4: 'Montserrat', sans-serif;
   --heading-font-family-h5: 'Montserrat', sans-serif;
   --heading-font-family-h6: 'Montserrat', sans-serif;
-  /* Breakpoints */
   --breakpoint-xs: 27.5rem; /* 440px / 16 */
   --breakpoint-sm: 48rem; /* 768px / 16 */
   --breakpoint-md: 62rem; /* 992px / 16 */
@@ -112,6 +107,19 @@
   --btn-default-size-xl: 1.5rem; /* 24px / 16 */
   --btn-default-leading: 1.5;
   --btn-default-weight: 600;
+  --btn-corners: 999px;
+
+  --btn-primary-bg: var(--color-primary-300);
+  --btn-primary-color: var(--color-neutral-50);
+
+  --btn-secondary-bg: radial-gradient(circle at center, #edff9e 0%, #e0ff59 100%);
+  --btn-secondary-color: var(--color-neutral-950);
+
+  --btn-outline-border-color: var(--color-neutral-300);
+  --btn-outline-width: 1px;
+  --btn-outline-style: solid;
+  --btn-outline-color: var(--color-neutral-700);
+  --btn-outline-color--hover: var(--color-neutral-700);
 
   --btn-medium-size-xs: 0.875rem; /* 14px / 16 */
   --btn-medium-size-sm: 1rem; /* 16px / 16 */
@@ -137,12 +145,17 @@
   font-family: var(--font-body);
 }
 
+/* Button Utilities */
 @utility btn-text-transform {
   text-transform: var(--btn-text-transform);
 }
 
 @utility btn-text-tracking {
   letter-spacing: var(--btn-text-tracking);
+}
+
+@utility btn-corners {
+  border-radius: var(--btn-corners);
 }
 
 @utility btn-leading {
@@ -153,6 +166,22 @@
   font-weight: var(--btn-default-weight);
 }
 
-@utility btn-border-radius {
-  border-radius: 999px;
+@utility btn-primary {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-color);
+}
+
+@utility btn-secondary {
+  background: var(--btn-secondary-bg);
+  color: var(--btn-secondary-color);
+}
+
+@utility btn-outline {
+  border-width: var(--btn-outline-width);
+  border-color: var(--btn-outline-border-color);
+  border-style: var(--btn-outline-style);
+  color: var(--btn-outline-color);
+  &:hover {
+    border-color: var(--btn-outline-color--hover);
+  }
 }

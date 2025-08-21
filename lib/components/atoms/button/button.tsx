@@ -11,7 +11,7 @@ const buttonVariants = cva(
       variant: {
         primary: 'btn-primary',
         secondary: 'btn-secondary',
-        outline: 'border border-gray-300 text-gray-700 hover:bg-gray-100',
+        outline: 'btn-outline hover:btn-outline--hover',
         text: 'text-blue-600 hover:text-blue-800',
         danger: 'bg-red-600 text-white hover:bg-red-700'
       },
@@ -35,24 +35,7 @@ const buttonVariants = cva(
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ children, variant, size, fullWidth, isLoading, icon, className, ...props }, ref) => {
-    // const variantClass = {
-    //   // primary: 'btn-primary',
-    //   secondary: 'btn-secondary',
-    //   outline: 'btn-outline',
-    //   ghost: 'btn-ghost',
-    //   danger: 'btn-danger',
-    //   text: 'btn-text'
-    // }[variant ?? 'primary']
-
-    // const sizeClass = {
-    //   sm: 'sm',
-    //   md: 'md',
-    //   lg: 'lg'
-    // }[size ?? 'md']
-    // console.log('isLoading', isLoading)
     return (
-      // <button className={cn('btn-default', variantClass, sizeClass, className)}>{children}</button>
-
       <button
         className={cn('btn-default', buttonVariants({ variant, size, fullWidth }), className)}
         ref={ref}

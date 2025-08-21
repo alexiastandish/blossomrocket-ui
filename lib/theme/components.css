@@ -1,6 +1,6 @@
 @theme {
   --btn-primary-bg: var(--color-primary-300);
-  --btn-primary-text-color: var(--color-primary-50);
+  --btn-primary-text-color: var(--color-neutral-50);
   --btn-secondary-bg: radial-gradient(circle at center, #edff9e 0%, #e0ff59 100%);
   --btn-secondary-text-color: var(--color-neutral-950);
 }
@@ -11,27 +11,10 @@
 
 @layer components {
   .btn-default {
-    @apply font-heading btn-text-transform btn-text-tracking btn-leading btn-weight btn-border-radius;
-    /* font-family: var(--font-heading); */
-    /* text-transform: uppercase; */
-    /* letter-spacing: 4px; */
-    /* font-size: var(--btn-default-size-xs); */
-    /* line-height: var(--btn-default-leading); */
-    /* font-weight: var(--btn-default-weight); */
-    /* border-radius: var(--rounded-lg); */
+    @apply font-heading btn-text-transform btn-text-tracking btn-leading btn-weight btn-corners;
   }
-
-  .btn-primary {
-    background: var(--btn-primary-bg);
-    color: var(--btn-primary-text-color);
-  }
-
-  .btn-secondary {
-    background: var(--btn-secondary-bg);
-    color: var(--btn-secondary-text-color);
-  }
-
-  @media (min-width: 48rem) {
+}
+/* @media (min-width: 48rem) {
     .btn-default {
       font-size: var(--btn-default-size-sm);
     }
@@ -105,4 +88,4 @@
       font-size: var(--btn-small-size-xl);
     }
   }
-}
+} */

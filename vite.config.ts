@@ -1,11 +1,11 @@
 import react from '@vitejs/plugin-react'
 import path from 'node:path'
-import { defineConfig, type UserConfigExport } from 'vite'
+import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
 import { name } from './package.json'
 import tailwindcss from '@tailwindcss/vite'
 
-const app = async (): UserConfigExport => {
+const app = async () => {
   return defineConfig({
     plugins: [
       react(),
